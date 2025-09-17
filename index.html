@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Learning Path</title>
+    <!--API INTEGRATION or smth like that ig-->
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
+
+    <!--CSS STYLES-->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/pathList.css">
+</head>
+<body>
+    <header>
+        <h2 class="header-title">Learning Path Console</h2>
+    </header>
+    <main>
+        <section id="path-list" class="path-list" active>
+            <div id="create-path-panel" class="create-path-panel">
+                <form id="create-panel-form" class="create-panel-form">
+                    <input type="text" name="name-of-path" id="name-of-path" class="name-of-path" minlength="5" maxlength="50" placeholder="Name of path" required>
+                    <input type="text" name="description-of-path" id="description-of-path" class="description-of-path" minlength="5" maxlength="100" placeholder="Description of path" required>
+                    <button type="submit" id="create-path-submit-btn" class="create-path-submit-btn">Create a Path</button>
+                </form>
+            </div>
+            <div id="edit-path-panel" class="edit-path-panel">
+                <form id="create-panel-form" class="create-panel-form">
+                    <input type="text" name="name-of-path" id="name-of-edit-path" class="name-of-path" minlength="5" maxlength="50" placeholder="Name of path">
+                    <input type="text" name="description-of-path" id="description-of-edit-path" class="description-of-path" minlength="5" maxlength="100" placeholder="Description of path">
+                    <button type="submit" id="create-path-edit-submit-btn" class="create-path-submit-btn">Edit the Path</button>
+                </form>
+            </div>
+            <div id="container" class="container">
+                <div id="control-panel" class="control-panel">
+                    <input type="search" id="search-input" class="search-input" placeholder="🔍Search paths here...">
+                    <div>
+                        <span id="number-of-paths">0 Paths</span>
+                        <button id="add-path-btn" class="add-path-btn">Add</button>
+                    </div>
+                </div>
+                <div id="paths-wrapper" class="paths-wrapper">
+                    <div class="paths-container" id="paths-container">
+                        <!-- That's where will the learning paths be! -->
+                        <div class="learning-path" id='231232-fuj322-fjdskl-324236-33jfds-388212'>
+                            <div class="title">
+                                <h3>Domain Expansion: Infinite void</h3>
+                                <h5>Kill Gojo using his own domain after copying it like a copy cat</h6>
+                            </div>
+                            <div class="statistics">
+                                <span class="completion-percentage">100%</span>
+                                <button class="delete-path" data-id='231232-fuj322-fjdskl-324236-33jfds-388212'>Delete</button>
+                                <button class="edit-path" data-id='231232-fuj322-fjdskl-324236-33jfds-388212'>Edit</button>
+                            </div>
+                        </div>
+                     </div>
+                     <!--  -->
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/uuid@latest/dist/umd/uuidv4.min.js"></script>
+    <script src="scripts/pathList.js" type="module"></script>
+</body>
+</html>

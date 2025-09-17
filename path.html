@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Learning Path</title>
+    <!--API INTEGRATION or smth like that ig-->
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
+
+    <!--CSS STYLES-->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/path.css">
+</head>
+<body>
+    <header>
+        <h2 class="header-title">Learning Path Console</h2>
+    </header>
+    <main>
+        <section>
+            <div class="path-name" id="path-name">
+                <div class="path-title" id="path-title">Physics</div>
+            </div>
+            <div class="container" id="container">
+                <!-- <div class="concept">
+                    Mechanics
+                </div>
+                <div class="line"></div>
+                <div class="sub-concept">Projectile Motion</div>
+                <div class="line"></div>
+                <div class="sub-concept">Classical Mechanics</div>
+                <div class="line"></div>
+                <div class="sub-concept">Forces</div>
+                <div class="line"></div>
+                <div class="concept">
+                    Thermal Energy
+                </div>
+                <div class="line"></div>
+                <div class="sub-concept">Heat Content</div>
+                <div class="line"></div>
+                <div class="sub-concept">Wavely Optics</div> -->
+                <div class="default">
+                    <img src="AOTSquad.png">
+                    <div class="default-text">You have no Concepts, start by creating one!</div>
+                </div>
+            </div>
+            <div class="options" id="options-btn">Add Concept/Sub-Concept</div>
+            <div class="add-panel" id="add-panel">
+                <div class="validation-message" id="validation-message"></div>
+                <form class="add-panel">
+                    <div>
+                        <div class="input-group">
+                            <input type="text" name="name" id="name" class="name" placeholder="Name of the concept/sub-concept" required maxlength="50">
+                            <div class="char-counter" id="name-counter">0/50</div>
+                        </div>
+                        <select id="select-difficulity" required>
+                            <option value="0" disabled selected>Select Difficulty</option>
+                            <option value="1">Beginner</option>
+                            <option value="2">Intermediate</option>
+                            <option value="3">Advanced</option>
+                            <option value="4">Extreme</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <input type="text" name="path-desc" id="path-desc" class="path-desc" placeholder="Description of the concept/sub-concept" required maxlength="200">
+                        <div class="char-counter" id="desc-counter">0/200</div>
+                    </div>
+                    <!-- <input type="text" name="concept-name" id="concept-name" class="name" placeholder="Name of the concept ">  -->
+                    <div class="choices">
+                        <label for="concept-radio" class="add-choice">Concept</label>
+                        <input type="radio" name="add-options" value="concept" id="concept-radio">
+                        <label for="sub-concept-radio" class="add-choice">Sub-Concept</label>
+                        <input type="radio" name="add-options" value="sub-concept" id="sub-concept-radio">
+                        <button type="button" class="add-resources-btn" id="add-resources-btn">Add Resources (opt)</button>
+                    </div>
+                    <div class="resources-add-panel" id="resources-add-panel">
+                        <input type="text" name="pdf-link" id="pdf-link" class="link-item" placeholder="Link to pdf explaining the concept, local links works!">
+                        <input type="text" name="article-link" id="article-link" class="link-item" placeholder="Link to Article explaining the concept">
+                        <input type="text" name="yt-intro-link" id="yt-intro-link" class="link-item" placeholder="Link to Youtube Introduction video to the concept">
+                        <input type="text" name="yt-playlist-link" id="yt-playlist-link" class="link-item" placeholder="Link to Youtube Playlist explaining the concept">
+                        <input type="text" name="yt-fullvideo-link" id="yt-fullvideo-link" class="link-item" placeholder="Link to Youtube Full explanation video">
+                    </div>
+                    <button type="submit" class="create-btn" id="create-btn">Add</button>
+                </form>
+            </div>
+            <div class="concept-info" id="concept-info">
+                <div class="concept-header">
+                    <h3 class="concept-title">Functions</h3>
+                    <span class="concept-level">Beginner</span>
+                    <span class="concept-time">Est. Time: 30 mins</span>
+                </div>
+
+                <div class="concept-progress">
+                    <h4>Mastery Percentage: <span class="mastery-percentage" id="mastery-percentage">40</span>%</h4>
+                    <progress value="40" max="100"></progress>
+                </div>
+
+                <div class="concept-details">
+                    <p class="concept-description">
+                        Functions allow you to group reusable code and call it when needed.
+                    </p>
+                <div class="concept-prerequisites">
+                    <strong>Prerequisites:</strong> <span class="prerequisites" id="prerequisites">None</span>
+                </div>
+                    <div class="concept-tags">
+                        <span class="tag-item">#Core JS</span> <span class="tag-item">#Reusable Code</span>
+                    </d>
+                </div>
+
+                <div class="concept-progress">
+                    <p>Status: <span class="concept-status">Not Started</span></p>
+                    <p>Practice Sessions: <span class="concept-practice-count">0</span></p>
+                    <p>Solved Quizzes: <span class="concept-solved-quizzes">0</span></p>
+                    <p>FlashCards Reviewed: <span class="concept-flashcards-reviewed-count">0</span></p>
+                </div>
+
+                <div class="concept-resources">
+                    <strong>Resources:</strong>
+                    <ul>
+                        <li><a href="#" target="_blank">Intro Video</a></li>
+                        <li><a href="#" target="_blank">Article: Understanding Basics</a></li>
+                        <li><a href="#" target="_blank">Example Project</a></li>
+                    </ul>
+                </div>
+                <div class="concept-actions">
+                    <button class="futuristic-panel" id="futuristic-panel" data-id="something">Concept Futuristic Panel</button>
+                    <button class="add-note" id="add-note" data-id="something">Add Note</button>
+                    <button class="edit-concept" id="edit-concept" data-id="something">Edit</button>
+                    <button class="delete-concept" id="delete-concept" data-id="something">Delete</button>
+                </div>
+                <button class="close-concept-info" id="close-concept-info">X</button>
+            </div>
+        </section>
+    </main>
+    <script src="scripts/path.js" type="module"></script>
+</body>
+</html>

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Path</title>
+    <!--API INTEGRATION or smth like that ig-->
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.2.4/fabric.min.js"></script>
+
+    <!--CSS STYLES-->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/futuristic-panel.css">
+</head>
+<body>
+    <header>
+        <h2 class="header-title">Learning Path Console</h2>
+    </header>
+    <main>
+        <div class="stats-container" id="stats-container">
+            <div class="concept">Organic Chemistry</div>
+            <div class="sub-concept">
+                <div class="underneath-effect"></div>
+                Alkane
+            </div>
+            <div class="sub-concept">
+                <div class="underneath-effect-subconcept"></div>
+                Alkene
+            </div>
+        </div>
+        <div class="canvas-container">
+            <canvas id="fabric-canvas" class="fabric-canvas"></canvas>
+        </div>
+        
+        <!-- Mobile tools toggle button -->
+        <button class="mobile-tools-toggle" id="mobile-tools-toggle">
+            <i class="fas fa-tools"></i>
+            Tools
+        </button>
+        <div class="tools-container">
+            <div class="mode-selector">
+                <button class="mode-btn active" id="text-mode" data-mode="text">
+                    <i class="fas fa-font"></i>
+                    Text
+                </button>
+                <button class="mode-btn" id="shape-mode" data-mode="shape">
+                    <i class="fas fa-shapes"></i>
+                    Shape
+                </button>
+                <button class="mode-btn" id="draw-mode" data-mode="draw">
+                    <i class="fas fa-pencil-alt"></i>
+                    Draw
+                </button>
+            </div>
+
+            <div class="preview-section">
+                <h3>Preview</h3>
+                <div class="preview-canvas">
+                    <div class="preview-element" id="preview-element">
+                        <span class="preview-text" id="preview-text">Hello World!</span>
+                        <div class="preview-shape" id="preview-shape"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <div class="text-content" id="text-content">
+                    <h3>Text</h3>
+                    <input type="text" id="text-input" placeholder="Enter your text..." value="Hello World!">
+                </div>
+
+                <div class="shape-content" id="shape-content" style="display: none;">
+                    <h3>Shapes</h3>
+                    <div class="shapes-grid">
+                        <div class="shape-btn" data-shape="rectangle" title="Rectangle">
+                            <div class="shape-icon rect"></div>
+                        </div>
+                        <div class="shape-btn" data-shape="circle" title="Circle">
+                            <div class="shape-icon circle"></div>
+                        </div>
+                        <div class="shape-btn" data-shape="triangle" title="Triangle">
+                            <div class="shape-icon triangle"></div>
+                        </div>
+                        <div class="shape-btn" data-shape="star" title="Star">
+                            <div class="shape-icon star">★</div>
+                        </div>
+                        <div class="shape-btn" data-shape="arrow" title="Arrow">
+                            <div class="shape-icon arrow">➤</div>
+                        </div>
+                        <div class="shape-btn" data-shape="diamond" title="Diamond">
+                            <div class="shape-icon diamond"></div>
+                        </div>
+                        <div class="shape-btn" data-shape="hexagon" title="Hexagon">
+                            <div class="shape-icon hexagon"></div>
+                        </div>
+                        <div class="shape-btn" data-shape="heart" title="Heart">
+                            <div class="shape-icon heart">❤</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="draw-content" id="draw-content" style="display: none;">
+                    <h3>Drawing Tools</h3>
+                    <div class="drawing-tools">
+                        <div class="tool-group">
+                            <label class="tool-label">Brush Type</label>
+                            <div class="brush-types">
+                                <button class="brush-btn active" data-brush="pencil" title="Pencil">
+                                    <i class="fas fa-pencil-alt"></i>
+                                </button>
+                                <button class="brush-btn" data-brush="brush" title="Brush">
+                                    <i class="fas fa-paint-brush"></i>
+                                </button>
+                                <button class="brush-btn" data-brush="marker" title="Marker">
+                                    <i class="fas fa-marker"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="tool-group">
+                            <label class="tool-label">Line Style</label>
+                            <div class="line-styles">
+                                <button class="line-btn active" data-style="solid" title="Solid">
+                                    <div class="line-preview solid"></div>
+                                </button>
+                                <button class="line-btn" data-style="dashed" title="Dashed">
+                                    <div class="line-preview dashed"></div>
+                                </button>
+                                <button class="line-btn" data-style="dotted" title="Dotted">
+                                    <div class="line-preview dotted"></div>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="tool-group">
+                            <label class="tool-label">Drawing Controls</label>
+                            <div class="drawing-controls">
+                                <button class="control-btn" id="enable-drawing">
+                                    <i class="fas fa-pencil-alt"></i>
+                                    Enable Drawing
+                                </button>
+                                <button class="control-btn" id="disable-drawing" style="display: none;">
+                                    <i class="fas fa-mouse-pointer"></i>
+                                    Disable Drawing
+                                </button>
+                                <button class="control-btn secondary" id="clear-drawing">
+                                    <i class="fas fa-eraser"></i>
+                                    Clear All
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="style-section">
+                <h3>Style</h3>
+                
+                <div class="style-group">
+                    <label class="style-label">Fill Color</label>
+                    <div class="color-input-group">
+                        <input type="color" id="fill-color" value="#000000">
+                        <span class="color-value" id="fill-value">#000000</span>
+                    </div>
+                    <div class="transparent-option">
+                        <label class="transparent-label">
+                            <input type="checkbox" id="transparent-fill">
+                            <span class="checkmark"></span>
+                            Transparent Fill
+                        </label>
+                    </div>
+                </div>
+
+                <div class="style-group">
+                    <label class="style-label">Stroke Color</label>
+                    <div class="color-input-group">
+                        <input type="color" id="stroke-color" value="#000000">
+                        <span class="color-value" id="stroke-value">#000000</span>
+                    </div>
+                </div>
+
+                <div class="style-group">
+                    <label class="style-label">Size</label>
+                    <div class="range-input-group">
+                        <input type="range" id="size-slider" min="10" max="100" value="24">
+                        <span class="range-value" id="size-value">24</span>
+                    </div>
+                </div>
+
+                <div class="style-group">
+                    <label class="style-label">Stroke Width</label>
+                    <div class="range-input-group">
+                        <input type="range" id="stroke-width" min="0" max="20" value="2">
+                        <span class="range-value" id="stroke-width-value">2</span>
+                    </div>
+                </div>
+
+                <div class="text-styles" id="text-styles">
+                    <div class="style-group">
+                        <label class="style-label">Font Family</label>
+                        <select id="font-family">
+                            <option value="Arial">Arial</option>
+                            <option value="Times New Roman">Times New Roman</option>
+                            <option value="Helvetica">Helvetica</option>
+                            <option value="Georgia">Georgia</option>
+                            <option value="Verdana">Verdana</option>
+                        </select>
+                    </div>
+                    
+                    <div class="text-format-buttons">
+                        <button class="format-btn" id="bold-btn" title="Bold">
+                            <i class="fas fa-bold"></i>
+                        </button>
+                        <button class="format-btn" id="italic-btn" title="Italic">
+                            <i class="fas fa-italic"></i>
+                        </button>
+                        <button class="format-btn" id="underline-btn" title="Underline">
+                            <i class="fas fa-underline"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Opacity Control -->
+                <div class="style-group">
+                    <label class="style-label">Opacity</label>
+                    <div class="range-input-group">
+                        <input type="range" id="opacity-slider" min="0" max="100" value="100">
+                        <span class="range-value" id="opacity-value">100%</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add Button -->
+            <div class="add-section">
+                <button class="add-button" id="add-element">
+                    <i class="fas fa-plus"></i>
+                    Add to Canvas
+                </button>
+            </div>
+
+            <!-- Additional Options -->
+            <div class="options-section">
+                <input type="file" id="upload" accept="image/*" style="display: none;">
+                <button class="option-btn" onclick="document.getElementById('upload').click()">
+                    <i class="fas fa-image"></i>
+                    Upload Image
+                </button>
+            </div>
+        </div>
+    </main>
+    <script src="scripts/futuristic-panel.js" type="module"></script>
+</body>
+</html>
