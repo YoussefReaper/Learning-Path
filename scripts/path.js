@@ -37,7 +37,7 @@ let isAddingConcept = false;
 
 const urlString = window.location.href;
 let paramString = urlString.split('?')[1];
-if (!paramString) window.location.href = "http://127.0.0.1:5500/index.html";
+if (!paramString) window.location.href = "https://aurocore.me/index.html";
 let queryString = new URLSearchParams(paramString);
 for (let pair of queryString.entries()) {
     if (pair[0] === 'id') {
@@ -45,7 +45,7 @@ for (let pair of queryString.entries()) {
         console.log(sessionStorage.getItem('id'));
     }
     else {
-        window.location.href = "http://127.0.0.1:5500/index.html";
+        window.location.href = "https://aurocore.me/index.html";
     }
 }
 
@@ -55,7 +55,7 @@ let pathObj = loadData('paths').filter((path) => {
     return path.uuid === pathUUID;
 })[0];
 
-if (!pathObj) window.location.href = "http://127.0.0.1:5500/index.html";
+if (!pathObj) window.location.href = "https://aurocore.me/index.html";
 
 let pathConcepts = pathObj.path;
 
@@ -80,9 +80,9 @@ document.addEventListener('click', (e) =>{
         const conceptName = e.target.dataset.id;
         const conceptType = e.target.dataset.type;
         if (conceptType === 'concept') {
-            window.open(`http://127.0.0.1:5500/futuristic-panel.html?id=${pathUUID}&conceptName=${conceptName}`, '_blank');
+            window.open(`https://aurocore.me/futuristic-panel.html?id=${pathUUID}&conceptName=${conceptName}`, '_blank');
         } else {
-            window.open(`http://127.0.0.1:5500/futuristic-panel.html?id=${pathUUID}&subconceptName=${conceptName}`, '_blank');
+            window.open(`https://aurocore.me/futuristic-panel.html?id=${pathUUID}&subconceptName=${conceptName}`, '_blank');
         }
     }
     else if (e.target.matches('.delete-concept')) handleDeleteConcept(e.target);
@@ -126,7 +126,6 @@ function updateCharacterCounter(input, counter, maxLength) {
     
     counter.classList.remove('warning', 'danger', 'success');
     if (currentLength === 0) {
-        // Default color
     } else if (percentage < 60) {
         counter.classList.add('success');
     } else if (percentage < 85) {
@@ -413,7 +412,6 @@ function hideValidationMessage() {
     if (validationMessage.classList.contains('show')) {
         validationMessage.classList.remove('show');
         setTimeout(() => {
-            // Only reset the className if the message is still hidden
             if (!validationMessage.classList.contains('show')) {
                 validationMessage.className = 'validation-message';
             }

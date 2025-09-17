@@ -251,7 +251,7 @@ let currentStyles = {
 
 const urlString = window.location.href;
 let paramString = urlString.split('?')[1];
-if (!paramString) window.location.href = "http://127.0.0.1:5500/index.html";
+if (!paramString) window.location.href = "https://aurocore.me/index.html";
 let queryString = new URLSearchParams(paramString);
 for (let pair of queryString.entries()) {
     if (pair[0] === 'id') {
@@ -266,7 +266,7 @@ for (let pair of queryString.entries()) {
         sessionStorage.setItem('subconceptName', pair[1]);
         console.log(sessionStorage.getItem('subconceptName'));
     } else {
-        window.location.href = "http://127.0.0.1:5500/index.html";
+        window.location.href = "https://aurocore.me/index.html";
     }
 }
 
@@ -276,7 +276,7 @@ let pathObj = loadData('paths').filter((path) => {
     return path.uuid === pathUUID;
 })[0];
 console.log(pathObj);
-if (!pathObj) window.location.href = "http://127.0.0.1:5500/index.html";
+if (!pathObj) window.location.href = "https://aurocore.me/index.html";
 const pathConceptName = currentPath === 'concept' ? sessionStorage.getItem('conceptName') : sessionStorage.getItem('subconceptName');
 let pathConceptObj;
 
@@ -298,7 +298,7 @@ if (currentPath === "concept") {
 }
 
 console.log(pathConceptObj);
-if (!pathConceptObj) window.location.href = "http://127.0.0.1:5500/index.html";
+if (!pathConceptObj) window.location.href = "https://aurocore.me/index.html";
 
 renderStatsList();
 

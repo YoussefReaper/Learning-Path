@@ -189,7 +189,7 @@ function handlePathClick(path) {
         return pathO.uuid === pathUUID;
     })[0];
 
-    window.location.href = `http://127.0.0.1:5500/path.html?id=${pathUUID}`;
+    window.location.href = `https://aurocore.me/path.html?id=${pathUUID}`;
 }
 
 function renderPathList(searchTerm = '') {
